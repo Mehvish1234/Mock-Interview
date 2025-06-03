@@ -17,9 +17,12 @@ import random
 from datetime import datetime
 from werkzeug.utils import secure_filename
 from dotenv import load_dotenv
+<<<<<<< HEAD
 import sqlite3
 import whisper
 import tempfile
+=======
+>>>>>>> origin/master
 
 # For the career roadmap feature, you might need to install:
 # pip install PyMuPDF (for PDF parsing)
@@ -34,8 +37,13 @@ if os.environ.get('RENDER'):
     # Production database URL from Render
     app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL')
 else:
+<<<<<<< HEAD
     # Local database URL - using SQLite instead of MySQL for easier setup
     app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///interview_prep.db'
+=======
+    # Local database URL
+    app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:@localhost/interview_prep'
+>>>>>>> origin/master
 
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.secret_key = os.environ.get('SECRET_KEY', '\x8bO|\xc3\xe3\x99&h%\xb9\xebU\xf9\x1eb\xee$\x85\xf1Z\x95\x85\xe3\xdd')
@@ -75,14 +83,26 @@ def get_db_connection():
                 cursorclass=pymysql.cursors.DictCursor
             )
         else:
+<<<<<<< HEAD
             # Local database connection using SQLite
             connection = sqlite3.connect('interview_prep.db')
             connection.row_factory = sqlite3.Row
+=======
+            # Local database connection
+            connection = pymysql.connect(
+                host='localhost',
+                user='root',
+                password='',
+                database='interview_prep',
+                cursorclass=pymysql.cursors.DictCursor
+            )
+>>>>>>> origin/master
         return connection
     except Exception as e:
         print(f"Database connection error: {e}")
         return None
 
+<<<<<<< HEAD
 # Add SQLite-specific configuration
 def get_db_connection_status():
     """Get database connection status information"""
@@ -92,6 +112,22 @@ def get_db_connection_status():
             cursor = connection.cursor()
             cursor.execute("SELECT sqlite_version()")
             version = cursor.fetchone()[0]
+=======
+# Add MySQL-specific configuration
+def get_db_connection_status():
+    """Get database connection status information"""
+    try:
+        connection = pymysql.connect(
+            host='localhost',
+            user='root',
+            password='',
+            database='interview_prep'
+        )
+        with connection.cursor() as cursor:
+            cursor.execute("SELECT VERSION()")
+            version = cursor.fetchone()[0]
+        connection.close()
+>>>>>>> origin/master
         return True, version
     except Exception as e:
         return False, str(e)
@@ -1122,6 +1158,7 @@ def db_health_check():
             }
         }), 500
 
+<<<<<<< HEAD
 @app.route('/live_interview')
 def live_interview():
     return render_template('live_interview.html')
@@ -1495,6 +1532,8 @@ def generate_speech_murf(text):
         print(f"Murf API exception: {str(e)}")
         return None
 
+=======
+>>>>>>> origin/master
 if __name__ == "__main__":
     try:
         # Verify MySQL connection first
@@ -1544,11 +1583,20 @@ if __name__ == "__main__":
         try:
             # Try to recreate the database
             print("Attempting to recreate database...")
+<<<<<<< HEAD
             import sqlite3
             # For SQLite, we just need to delete the file and let SQLAlchemy recreate it
             if os.path.exists('interview_prep.db'):
                 os.remove('interview_prep.db')
             print("Database file reset")
+=======
+            connection = pymysql.connect(host='localhost', user='root', password='')
+            with connection.cursor() as cursor:
+                cursor.execute("DROP DATABASE IF EXISTS interview_prep")
+                cursor.execute("CREATE DATABASE interview_prep")
+                print("Database recreated successfully")
+            connection.close()
+>>>>>>> origin/master
             
             with app.app_context():
                 db.create_all()
