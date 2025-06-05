@@ -2,21 +2,6 @@
 
 An all-in-one interview preparation platform designed to help job seekers track their interview progress, practice interviews with AI, generate personalized career roadmaps, and prepare for interviews at top tech companies.
 
-## 🚀 Latest Features
-
-### 🎤 Live Interview System
-- **Real-time Speech Recognition**: Answer questions using voice input with browser-based speech recognition
-- **AI-Powered Question Generation**: Dynamic interview questions tailored to your experience level
-- **Instant Audio Feedback**: Questions are spoken aloud using text-to-speech technology
-- **Performance Evaluation**: Get detailed scores and feedback on each answer
-- **Quick 2-Question Sessions**: Perfect for regular practice without time commitment
-
-### 💬 English Communication Skills
-- **AI Grammar Correction**: Improve your English using Google Gemini AI
-- **Side-by-Side Comparison**: See original vs improved text clearly
-- **Professional Enhancement**: Optimized specifically for interview contexts
-- **Text-to-Speech Integration**: Practice pronunciation with high-quality audio
-- **Detailed Improvements**: Learn exactly what was corrected and why
 
 ## Features
 
@@ -42,39 +27,6 @@ An all-in-one interview preparation platform designed to help job seekers track 
 - **Authentication**: Flask session management with bcrypt for password hashing
 - **File Processing**: PyPDF2 for resume parsing, PyMuPDF for advanced PDF handling
 - **Styling**: Font Awesome for icons
-
-## Getting Started
-
-### Prerequisites
-
-- Python 3.8+
-- Modern web browser with speech recognition support (Chrome, Edge recommended)
-- Graphviz (for flowchart generation)
-
-### Installation
-
-1. Clone the repository
-2. Install dependencies:
-   ```
-   pip install -r requirements.txt
-   pip install git+https://github.com/openai/whisper.git
-   ```
-3. Install Graphviz from https://graphviz.org/download/
-4. Set up environment variables (optional):
-   ```
-   GEMINI_API_KEY=your_gemini_api_key
-   SECRET_KEY=your_secret_key
-   ```
-5. Run the application:
-   ```
-   python app.py
-   ```
-6. Access the application at: http://127.0.0.1:5000/
-
-### Default Login
-
-- Email: admin@example.com
-- Password: admin123
 
 ## Key Features Explained
 
@@ -134,6 +86,39 @@ Access specialized resources for top tech companies including:
 - **Firefox**: Limited speech recognition support
 - **Safari**: Basic functionality
 
+
+## Getting Started
+
+### Prerequisites
+
+- Python 3.8+
+- Modern web browser with speech recognition support (Chrome, Edge recommended)
+- Graphviz (for flowchart generation)
+
+### Installation
+
+1. Clone the repository
+2. Install dependencies:
+   ```
+   pip install -r requirements.txt
+   pip install git+https://github.com/openai/whisper.git
+   ```
+3. Install Graphviz from https://graphviz.org/download/
+4. Set up environment variables (optional):
+   ```
+   GEMINI_API_KEY=your_gemini_api_key
+   SECRET_KEY=your_secret_key
+   ```
+5. Run the application:
+   ```
+   python app.py
+   ```
+6. Access the application at: http://127.0.0.1:5000/
+
+### Default Login
+
+- Email: admin@example.com
+- Password: admin123
 ## 🤝 Contributing
 
 This project welcomes contributions! Feel free to submit issues and pull requests.
