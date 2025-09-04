@@ -8,6 +8,7 @@ An all-in-one interview preparation platform designed to help job seekers track 
 - **User Authentication**: Secure login and registration system with profile management
 - **Interview Tracking**: Track your interview progress, statuses, and performance
 - **AI Interview Practice**: Practice interviews with AI-generated questions and receive personalized feedback
+- **AI Avatar Interview (with Posture & Video Analysis)**: Practice interviews with a lifelike avatar, auto-capture your webcam stream, analyse posture/eye-contact/talking pace, and get actionable feedback
 - **Live Interview Sessions**: Voice-powered practice sessions with real-time feedback
 - **English Communication Skills**: AI-powered text correction and pronunciation practice
 - **Career Roadmap Generator**: Generate customized career roadmaps with flowcharts based on your job role, experience, and target company
@@ -20,8 +21,8 @@ An all-in-one interview preparation platform designed to help job seekers track 
 
 - **Backend**: Flask (Python)
 - **Database**: SQLite (local) / MySQL (production)
-- **AI Integration**: Google Gemini API for text generation and evaluation
-- **Speech Technology**: Web Speech API, Whisper for transcription, Murf API for TTS
+- **AI Integration**: Google Gemini API for question/evaluation, D‑ID Talk API for avatar (optional)
+- **Speech Technology**: Web Speech API, Whisper (fallback) for transcription, TTS engines
 - **Frontend**: HTML, CSS, JavaScript, Bootstrap 5
 - **Data Visualization**: Graphviz for flowcharts
 - **Authentication**: Flask session management with bcrypt for password hashing
@@ -46,6 +47,15 @@ Enhance your communication with:
 
 ### 🤖 AI Interview Practice
 Practice interviews with AI-generated questions tailored to your job role, experience level, and target company. Receive detailed feedback and performance scores to improve your interview skills.
+
+### 🧑‍💻 AI Avatar Interview (Posture, Video & Timeline)
+Bring your mock interview to life with a realistic avatar and objective delivery analysis:
+- **Avatar Responses**: Uses D‑ID Talk API to render the interviewer’s video/audio based on the current question or follow‑ups.
+- **Speech‑to‑Text**: Browser Web Speech API (with Whisper fallback) captures your spoken answers.
+- **Posture & Delivery Analysis**: Client tooling estimates posture stability, head pose, eye contact, pauses, filler words and speaking rate. Scores are combined with answer quality for an overall rating.
+- **Video Recording**: MediaRecorder saves the session (with user consent) and uploads via Flask endpoint (`/api/save_interview_video`).
+- **Detailed Feedback**: `/api/evaluate_answer_detailed` merges language quality, posture, and video metrics into a structured report (strengths, gaps, and improvement tips).
+- **History & Review**: Sessions are saved (JSON + optional video), visible under Avatar Interview History with per‑question feedback.
 
 ### 🗺️ Career Roadmap Generator
 Generate a personalized career roadmap including:
@@ -78,6 +88,7 @@ Access specialized resources for top tech companies including:
 - **Improved Speech Recognition**: More accurate voice-to-text conversion
 - **Enhanced User Interface**: Modern, responsive design with better accessibility
 - **Performance Analytics**: Detailed scoring and improvement tracking
+- **AI Avatar + Posture**: Avatar-led interviews with posture, delivery and video analysis; interview history and detailed per‑question reports; dashboard now shows real usage across features
 
 ## 📱 Browser Support
 
