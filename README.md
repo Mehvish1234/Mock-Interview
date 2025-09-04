@@ -123,6 +123,3 @@ Access specialized resources for top tech companies including:
 
 This project welcomes contributions! Feel free to submit issues and pull requests.
 
-## 📄 License
-
-This project is open source and available under the MIT License.
